@@ -1,0 +1,64 @@
+﻿<Window x:Class="CWRackContainer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CWRackContainer"
+        mc:Ignorable="d"
+        Title="CWRackContainer" Height="1000" Width="555" Background="Transparent" Closing="MainWindow_Closing" Loaded="Window_Loaded">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0 32 0 0" ResizeBorderThickness="8" NonClientFrameEdges="Left,Bottom,Right"/>
+    </WindowChrome.WindowChrome>
+    <Border x:Name="RootBorder">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Height="24" Background="White" HorizontalAlignment="Left" VerticalAlignment="Bottom" CornerRadius="0,8,0,0">
+                <StackPanel Margin="8,0" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <TextBlock x:Name="TitleBox" Text="CWRackContainer" VerticalAlignment="Bottom" FontSize="16" Margin="2,2"/>
+                </StackPanel>
+            </Border>
+            <Border Visibility="Collapsed" Height="24" Background="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,140,0" CornerRadius="8,8,0,0" WindowChrome.IsHitTestVisibleInChrome="True">
+                <StackPanel Margin="4,0" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button x:Name="AttachBtn" Content="Attach" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="AttachBtn_Click" Margin="2"/>
+                    <Button x:Name="DetachBtn" Content="Detach" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="DetachBtn_Click" Margin="2"/>
+                    <Button Content="⚙" Margin="2" Width="20" Height="20"/>
+                </StackPanel>
+            </Border>
+            <Grid Grid.Row="1" Background="#252526">
+                <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20,15" Orientation="Horizontal">
+                    <TextBlock Text="CW" Foreground="#FFB41414" FontSize="40" VerticalAlignment="Bottom" FontWeight="Bold" FontStyle="Italic" Margin="0,0,10,0" LineStackingStrategy="BlockLineHeight" LineHeight="20"/>
+                    <TextBlock Foreground="Gainsboro" FontSize="20" LineStackingStrategy="BlockLineHeight" LineHeight="20" VerticalAlignment="Bottom">
+                            <Run Text="Rack"/>
+                            <LineBreak/>
+                            <Run Text="Container"/>
+                    </TextBlock>
+                </StackPanel>
+                
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="310"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Border x:Name="CWPanel" Width="445"/>
+                </Grid>
+                <GridSplitter Grid.Row="1" ResizeDirection="Rows" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#2D2D30" BorderBrush="#3F3F46" BorderThickness="0,1"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="280"/>
+                        <ColumnDefinition Width="6"/>
+                        <ColumnDefinition Width="262"/>
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="Maya22Panel" Grid.Column="0" Height="310" Width="280" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                    <GridSplitter Grid.Column="1" ResizeDirection="Columns" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#2D2D30" BorderBrush="#3F3F46" BorderThickness="1,0"/>
+                    <Border x:Name="DWPanel" Grid.Column="2" Height="240" Width="262" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
